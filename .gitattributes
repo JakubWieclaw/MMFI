@@ -1,0 +1,14 @@
+# Normalize line endings for text files
+* text=auto
+
+# Ensure LaTeX files use LF line endings
+*.tex text eol=lf
+*.sty text eol=lf
+*.cls text eol=lf
+
+# Treat common binary files as binary
+*.pdf binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.eps binary
