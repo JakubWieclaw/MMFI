@@ -19,6 +19,28 @@
 
 \end{frame}
 
+\begin{frame}{Bezpieczeństwo RSA}
+
+\end{frame}
+
+\begin{frame}{Bezpieczeństwo ECC}
+Najszybszy klasyczny \footnote{tz. nie korzystający z matematyki kwantowej} algorytm do rozwiązania ECDLP to algorytm faktoryzacji rho Pollarda \cite{SolvingECDLP}.
+\begin{itemize}
+    \item Dla przestrzeni wielkości k wymaga $\sqrt{k}$ kroków
+    \item Do x bitów bezpieczeństwa potrzebny jest klucz wielkości 2x
+    \item Przykładowo 256-bitowa krzywa teoretycznie daje 128-bitów bezpieczeństwa
+\end{itemize}
+\pause
+Rzeczywiste bezpieczeństwo $\approx 0.886*\sqrt{k}$
+\pause
+\begin{itemize}
+    \item \textit{secp256k1} klucz 256 bit $\Rightarrow$ 127.8 bitów bezpieczeństwa \cite{Secp256k1Security}
+    \item \textit{Curve448} klucz 448 bit $\Rightarrow$ 222.8 bitów bezpieczeństwa \cite{Secp256k1Security}
+\end{itemize}
+% Rzeczywiste bezpieczeństwo jest mniejsze, ponieważ ranga krzywej w dyskretnej przestrzeni jest zazwyczaj mniejsza niż wielkość pojedynczego wymiaru przestrzeni
+
+\end{frame}
+
 \begin{frame}{Porówanie długości klucza}
     % Na tej samej długości klucza różne algorytmy dają różne bezpieczeństwo
 \end{frame}
