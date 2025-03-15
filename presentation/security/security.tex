@@ -20,10 +20,28 @@
 \end{frame}
 
 \begin{frame}{Bezpieczeństwo RSA}
-
+% Wielkość klucza to ilość bitów modułu n = p*q
+Najszybszy klasyczny \footnote{tz. nie korzystający z matematyki kwantowej} algorytm refaktoryzacji liczb to Ogólne sito ciała liczbowego (GNFS) \footnote{ang. General Number Field Sieve}.
+\begin{itemize}
+    \item Złożoność \cite{GNFSImplementation} \begin{footnotesize}$$L(n) = \exp\left(\left(\frac{64}{9}\right)^{1/3} (\ln n)^{1/3} (\ln \ln n)^{2/3}\right)$$\end{footnotesize}
+    \item Liczba bitów bezpieczeństwa $= \log_2(L(n))$
+\end{itemize}
+\pause
+$$
+\begin{array}{|c|c|}
+\hline
+\textbf{Wielkość \, klucza \, RSA \, (bity)} & \textbf{Bity \, Bezpieczeństwa} \\
+\hline
+1024 & \sim 80 \\
+2048 & \sim 112 \\
+3072 & \sim 128 \\
+\hline
+\end{array}
+$$
 \end{frame}
 
 \begin{frame}{Bezpieczeństwo ECC}
+% Wielkość klucza to rozmiar jednego wymiaru dyskretnej przestrzeni
 Najszybszy klasyczny \footnote{tz. nie korzystający z matematyki kwantowej} algorytm do rozwiązania ECDLP to algorytm faktoryzacji rho Pollarda \cite{SolvingECDLP}.
 \begin{itemize}
     \item Dla przestrzeni wielkości k wymaga $\sqrt{k}$ kroków
