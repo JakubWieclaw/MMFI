@@ -1,0 +1,182 @@
+% Hussein
+
+
+\begin{frame}{RSA} 
+    \section{Definicja RSA}
+    RSA (Rivest–Shamir–Adleman) to algorytm szyfrowania publicznego, który opiera się na trudności faktoryzacji dużych liczb.Matematyczna teoria RSA bazuje na następujących kluczowych elementach:
+    
+    \section{Wybór dwóch dużych liczb pierwszych}
+    1. Wybór dwóch dużych liczb pierwszych: \( p \) oraz \( q \).
+    
+    \section{Obliczenie \( n \)}
+    2. Obliczamy iloczyn tych liczb:    
+    \[
+    n = p \times q
+    \]
+    Liczba \( n \) jest wykorzystywana zarówno w kluczu publicznym, jak i prywatnym.
+    
+    \section{Obliczenie funkcji Eulera}
+    3. Funkcja Eulera dla \( n \) jest dana wzorem:
+    \[
+    \varphi(n) = (p-1)(q-1)
+    \]
+   
+\end{frame}
+
+\begin{frame}{RSA}  
+    Jest używana do obliczenia wykładnika prywatnego klucza.
+    
+    \section{Wybór wykładnika publicznego \( e \)}
+    4. Wybieramy liczbę \( e \), która musi być liczbą względnie pierwszą względem \(\varphi(n)\) oraz spełnia warunek:
+    \[
+    \gcd(e, \varphi(n)) = 1, \quad e < \varphi(n)
+    \]
+    GCD: Obliczanie największego wspólnego dzielnika (GCD, greatest common divisor), oraz jest obliczany za pomocą algorytmu Euklidesa.
+   
+    \section{algorytm Euklidesa}
+    Algorytm Euklidesa polega na powtarzaniu operacji dzielenia z resztą, aż reszta wyniesie 0. 
+\end{frame}
+
+\begin{frame}{RSA}  
+   
+
+    
+    \section{Opis algorytmu}
+    
+    \begin{enumerate}
+        \item Dla dwóch liczb \( a \) i \( b \), gdzie \( a \geq b \), obliczamy:
+        \[
+        a \div b = q \quad \text{(część całkowita)}
+        \]
+        \[
+        r = a \mod b \quad \text{(reszta)}
+        \]
+        co zapisujemy jako:
+        \[
+        a = b \times q + r
+        \]
+    
+        \item Następnie ustawiamy:
+        \[
+        a = b, \quad b = r
+        \]
+        i powtarzamy krok 1.
+    
+        \item Proces powtarzamy, aż \( b = 0 \). Gdy \( b = 0 \), wówczas:
+        \[
+        \gcd(a, b) = a
+        \]
+    \end{enumerate}
+    
+   
+  
+\end{frame}
+
+\begin{frame}{RSA}  
+    \section{Obliczenie wykładnika prywatnego \( d \)}
+    5. Liczba \( d \) jest odwrotnością modularną \( e \) względem \( \varphi(n) \), tzn.:
+    \[
+    e \times d \equiv 1 \pmod{\varphi(n)}
+    \]
+    \section{Obliczanie odwrotności \( e \) modulo \( \varphi(n) \)}
+    
+    Należy znaleźć "modularną odwrotność" \( e \) modulo \( \varphi(n) \).
+    
+    \section{Rozszerzony algorytm Euklidesa}
+    
+    W celu wyznaczenia wartości \( d \) często stosuje się \textbf{rozszerzony algorytm Euklidesa}, który nie tylko oblicza największy wspólny dzielnik (\(\gcd\)), ale również pozwala znaleźć współczynniki spełniające:
+    
+    %\begin{equation}
+         \[
+        e \times d + \varphi(n) \times k = \gcd(e, \varphi(n))
+   \]
+        % \end{equation}
+\end{frame}
+
+\begin{frame}{RSA}  
+    \section{Warunek istnienia odwrotności}
+    
+
+    \section{Szyfrowanie i odszyfrowywanie}
+    \subsection{Klucz publiczny i prywatny}
+    \begin{itemize}
+        \item Klucz publiczny: \( (e, n) \)
+        \item Klucz prywatny: \( (d, n) \)
+    \end{itemize}
+    
+    \section{Szyfrowanie}
+    6. Jeśli wiadomość \( M \) (gdzie \( M < n \)) ma zostać zaszyfrowana, obliczamy:
+    \[
+    C = M^e \mod n
+    \]
+    gdzie \( C \) to zaszyfrowana wiadomość.
+    
+    \section{Odszyfrowywanie} 
+    7. Odbiorca używa klucza prywatnego \( d \) i oblicza:
+    \[
+    M = C^d \mod n
+    \]
+\end{frame}
+
+
+\begin{frame}{ECC}
+
+\section{Kryptografia Krzywych Eliptycznych (ECC)}
+
+Kryptografia krzywych eliptycznych (ECC) jest definiowana za pomocą następującego ogólnego równania w dwóch zmiennych z współczynnikami:
+
+\[
+    y^2 = x^3 + ax + b
+\]
+
+gdzie $a$ i $b$ są współczynnikami krzywej eliptycznej.
+
+Delta krzywej eliptycznej jest określony jako:
+
+\[
+    \Delta = 4a^3 + 27b^2 \neq 0
+\]
+
+Warunek $\Delta \neq 0$ zapewnia, że krzywa tworzy \textbf{grupę algebraiczną}, co jest konieczne do zastosowania jej w kryptografii. Jeśli $\Delta = 0$, struktura matematyczna krzywej nie jest prawidłowa do użycia w szyfrowaniu.
+\end{frame}
+
+\begin{frame}{ECC}
+    
+    \textbf{Globalne elementy publiczne:}
+    \begin{itemize}
+        \item Wybór krzywej eliptycznej $E_q(a, b)$ 
+        \item Wybór punktu bazowego $G(x, y)$ o dużym rzędzie $n$.
+    \end{itemize}
+
+    \textbf{Generowanie klucza Użytkownika A:}
+    \begin{itemize}
+        \item Użytkownik A wybiera klucz prywatny $V_A$, gdzie $V_A < n$.
+        \item Oblicza klucz publiczny $P_A(x, y) = V_A \times G(x, y)$.
+    \end{itemize}
+
+    \textbf{Generowanie klucza Użytkownik B:}
+    \begin{itemize}
+        \item Użytkownik B wybiera klucz prywatny $V_B$, gdzie $V_B < n$.
+        \item Oblicza klucz publiczny $P_B(x, y) = V_B \times G(x, y)$.
+    \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}{ECC}
+
+    \begin{itemize}
+        \item Użytkownik A wybiera wiadomość $P_m(x, y)$ oraz losową liczbę $k$, gdzie $1 < k < q$.
+        \item Tworzy szyfrogram $C_m = ((k \times G(x, y)), (P_m(x, y) + k \times P_B(x, y)))$.
+    \end{itemize}
+    \begin{itemize}
+        \item Użytkownik B otrzymuje szyfrogram $C_m$ jako $((x, y), (x', y'))$.
+        \item Odszyfrowuje wiadomość:
+        \[
+            P_m(x, y) = (P_m(x, y) + k \times P_B(x, y)) - (k \times V_B \times G(x, y))
+        \]
+        \item Po wykonaniu operacji pozostaje oryginalna wiadomość $P_m(x, y)$.
+    \end{itemize}
+
+
+\end{frame}
