@@ -74,6 +74,7 @@ Rzeczywiste bezpieczeństwo $\approx 0.886*\sqrt{k}$
 Bezpieczne implementacje są teoretycznie możliwe. \\
 Implementacja może być podatna na \cite{SafeCurves}
 \begin{itemize}
+    \item Ataki na generator liczb losowych
     \item Błędne wyniki dla specyficznych punktów
     \item Wyciek informacji, gdy podany punkt nie należy do krzywej
     \item Ataki poprzez pomiar czasu wykonania
@@ -103,7 +104,7 @@ Możliwe jest \textbf{celowe wybranie słabej krzywej} jako backdoor.
 
 \begin{frame}{Podatności ECC}
     \framesubtitle{Bezpieczny system}
-    Standardy wyboru krzywych
+    Standardy wyboru krzywych \cite{SafeCurves}
     \begin{scriptsize}
         \begin{itemize}
             \item ANSI X9.62 (1999)
@@ -118,9 +119,24 @@ Możliwe jest \textbf{celowe wybranie słabej krzywej} jako backdoor.
     \end{scriptsize}
     \pause
     \vspace{3mm}
-    Wśród przebadanych krzywych są też bardziej wydajne krzywej z mniejszym bezpieczeństwem dla tej samej długości klucza.
+    Wśród przebadanych krzywych są też bardziej wydajne krzywej z mniejszym bezpieczeństwem dla tej samej długości klucza. \cite{PracticalCryptographyForDevelopers}
 \end{frame}
 
-\begin{frame}{RSA jest mocno przetestowane}
-    % Są słabe krzywe, które można celowo wybrać jako backdoor
+\begin{frame}{Ataki na RSA}
+\begin{itemize}
+    \item Ataki kanału bocznego
+    \item Ataki na generator liczb losowych
+    \item \textbf{Podatne liczby pierwsze}
+    \pause
+    \item \textbf{Długość klucza}
+\end{itemize}
+Klucze długości 1024 bit są dziś niewystarczająco bezpieczne.
+\end{frame}
+
+\begin{frame}{Użycie bibliotek}
+    \begin{figure}
+        \centering
+            \includegraphics[height=0.55\textwidth]{security/graphics/developer-implements-rsa-car-meme}
+            \caption{Źródło: \cite{SeriouslyStopUsingRsa}}
+    \end{figure}
 \end{frame}
