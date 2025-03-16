@@ -67,8 +67,58 @@ Rzeczywiste bezpieczeństwo $\approx 0.886*\sqrt{k}$
     \end{figure}
 \end{frame}
 
-\begin{frame}{Problem wyboru krzywej ECC}
-    % Są słabe krzywe, które można celowo wybrać jako backdoor
+\begin{frame}{Podatności ECC}
+\framesubtitle{Podatne implementacje}
+\textbf{$ECDLP \neq ECC$} \\
+\pause
+Bezpieczne implementacje są teoretycznie możliwe. \\
+Implementacja może być podatna na \cite{SafeCurves}
+\begin{itemize}
+    \item Błędne wyniki dla specyficznych punktów
+    \item Wyciek informacji, gdy podany punkt nie należy do krzywej
+    \item Ataki poprzez pomiar czasu wykonania
+\end{itemize}
+\pause
+\vspace{3mm}
+Przykład: Wyciek kluczy prywatnych Sony PlayStation 3 w 2010 \cite{ConsoleHacking2010}
+% W 2010 roku odkryto, że implementacja ECDSA w PlayStation 3 miała poważny błąd.
+% Błąd polegał na używaniu tej samej wartości nonce dla różnych podpisów.
+% Pozwoliło to na odzyskanie klucza prywatnego z dwóch podpisów cyfrowych.
+% W wyniku tego ataku możliwe było uruchamianie nieautoryzowanego oprogramowania na konsoli.
+\pause
+\end{frame}
+
+\begin{frame}{Podatności ECC}
+\framesubtitle{Podatne krzywe}
+Nie wszystkie krzywe gwarantują, że ECDLP jest trudny.
+Ataki na podatne krzywe \cite{WeakCurvesInEllipticCurveCryptography}
+\begin{itemize}
+    \item Algorytm Pohinga-Hellmana
+    \item Algorytm Smarta
+\end{itemize}
+\pause
+\vspace{3mm}
+Możliwe jest \textbf{celowe wybranie słabej krzywej} jako backdoor.
+\end{frame}
+
+\begin{frame}{Podatności ECC}
+    \framesubtitle{Bezpieczny system}
+    Standardy wyboru krzywych
+    \begin{scriptsize}
+        \begin{itemize}
+            \item ANSI X9.62 (1999)
+            \item IEEE P1363 (2000)
+            \item SEC 2 (2000)
+            \item NIST FIPS 186-2 (2000)
+            \item ANSI X9.63 (2001)
+            \item Brainpool (2005)
+            \item NSA Suite B (2005)
+            \item ANSSI FRP256V1 (2011)
+        \end{itemize}
+    \end{scriptsize}
+    \pause
+    \vspace{3mm}
+    Wśród przebadanych krzywych są też bardziej wydajne krzywej z mniejszym bezpieczeństwem dla tej samej długości klucza.
 \end{frame}
 
 \begin{frame}{RSA jest mocno przetestowane}
