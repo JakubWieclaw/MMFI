@@ -1,7 +1,5 @@
 # Referat: Porównanie algorytmów kryptograficznych RSA i Krzywej Eliptycznej
 
-## Opis
-
 Ten dokument zawiera referat dotyczący porównania algorytmów kryptograficznych RSA i Krzywej Eliptycznej (ECC). Celem referatu jest przedstawienie matematycznych podstaw, bezpieczeństwa oraz zastosowań obu algorytmów.
 
 ## Spis treści
