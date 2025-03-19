@@ -2,20 +2,19 @@
 
 
 \begin{frame}{RSA}
-    %\section{Definicja RSA}
+    
     RSA (Rivest–Shamir–Adleman) to algorytm szyfrowania publicznego, który opiera się na trudności faktoryzacji dużych liczb.Matematyczna teoria RSA bazuje na następujących kluczowych elementach:
 
-    %\section{Wybór dwóch dużych liczb pierwszych}
-    1. Wybór dwóch dużych liczb pierwszych: \( p \) oraz \( q \).
+   1. Wybór dwóch dużych liczb pierwszych: \( p \) oraz \( q \).
 
-    %\section{Obliczenie \( n \)}
+   
     2. Obliczamy iloczyn tych liczb:
     \[
     n = p \times q
     \]
     Liczba \( n \) jest wykorzystywana zarówno w kluczu publicznym, jak i prywatnym.
 
-    %\section{Obliczenie funkcji Eulera}
+    
     3. Funkcja Eulera dla \( n \) jest dana wzorem:
     \[
     \varphi(n) = (p-1)(q-1)
@@ -26,14 +25,13 @@
 \begin{frame}{RSA}
     Jest używana do obliczenia wykładnika prywatnego klucza.
 
-    %\section{Wybór wykładnika publicznego \( e \)}
     4. Wybieramy liczbę \( e \), która musi być liczbą względnie pierwszą względem \(\varphi(n)\) oraz spełnia warunek:
     \[
     \gcd(e, \varphi(n)) = 1, \quad e < \varphi(n)
     \]
     GCD: Obliczanie największego wspólnego dzielnika (GCD, greatest common divisor), oraz jest obliczany za pomocą algorytmu Euklidesa.
 
-    %\section{algorytm Euklidesa}
+   
     Algorytm Euklidesa polega na powtarzaniu operacji dzielenia z resztą, aż reszta wyniesie 0.
 \end{frame}
 
@@ -41,7 +39,6 @@
 
 
 
-    %\section{Opis algorytmu}
 
     \begin{enumerate}
         \item Dla dwóch liczb \( a \) i \( b \), gdzie \( a \geq b \), obliczamy:
@@ -73,45 +70,43 @@
 \end{frame}
 
 \begin{frame}{RSA}
-    %\section{Obliczenie wykładnika prywatnego \( d \)}
+   
     5. Liczba \( d \) jest odwrotnością modularną \( e \) względem \( \varphi(n) \), tzn.:
     \[
     e \times d \equiv 1 \pmod{\varphi(n)}
     \]
-    %\section{Obliczanie odwrotności \( e \) modulo \( \varphi(n) \)}
-
+   
     Należy znaleźć "modularną odwrotność" \( e \) modulo \( \varphi(n) \).
 
-    %\section{Rozszerzony algorytm Euklidesa}
-
+    
     W celu wyznaczenia wartości \( d \) często stosuje się \textbf{rozszerzony algorytm Euklidesa}, który nie tylko oblicza największy wspólny dzielnik (\(\gcd\)), ale również pozwala znaleźć współczynniki spełniające:
 
-    %\begin{equation}
+    
          \[
         e \times d + \varphi(n) \times k = \gcd(e, \varphi(n))
    \]
-        % \end{equation}
+       
 \end{frame}
 
 \begin{frame}{RSA}
-    %\section{Warunek istnienia odwrotności}
+   
 
 
-    %\section{Szyfrowanie i odszyfrowywanie}
+   
     \subsection{Klucz publiczny i prywatny}
     \begin{itemize}
         \item Klucz publiczny: \( (e, n) \)
         \item Klucz prywatny: \( (d, n) \)
     \end{itemize}
 
-    %\section{Szyfrowanie}
+    
     6. Jeśli wiadomość \( M \) (gdzie \( M < n \)) ma zostać zaszyfrowana, obliczamy:
     \[
     C = M^e \mod n
     \]
     gdzie \( C \) to zaszyfrowana wiadomość.
 
-    %\section{Odszyfrowywanie}
+   
     7. Odbiorca używa klucza prywatnego \( d \) i oblicza:
     \[
     M = C^d \mod n
@@ -121,7 +116,6 @@
 
 \begin{frame}{ECC}
 
-%\section{Kryptografia Krzywych Eliptycznych (ECC)}
 
 Kryptografia krzywych eliptycznych (ECC) jest definiowana za pomocą następującego ogólnego równania w dwóch zmiennych z współczynnikami:
 
