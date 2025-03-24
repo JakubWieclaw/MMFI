@@ -72,32 +72,36 @@ Rzeczywiste bezpieczeństwo $\approx 0.886*\sqrt{k}$
     \end{figure}
 \end{frame}
 
+% \begin{frame}{Podatności ECC}
+% \framesubtitle{Podatne implementacje}
+% \textbf{$ECDLP \neq ECC$} \\
+% \pause
+% Bezpieczne implementacje są teoretycznie możliwe. \\
+% \pause
+% Implementacja może być podatna na \cite{SafeCurves}
+% \begin{itemize}
+%     \item Ataki na generator liczb losowych
+%     \item Błędne wyniki dla specyficznych punktów
+%     \item Wyciek informacji, gdy podany punkt nie należy do krzywej
+%     \item Ataki poprzez pomiar czasu wykonania
+% \end{itemize}
+% \pause
+% \vspace{3mm}
+% Przykład: Wyciek kluczy prywatnych Sony PlayStation 3 w 2010 \cite{ConsoleHacking2010}
+% % W 2010 roku odkryto, że implementacja ECDSA w PlayStation 3 miała poważny błąd.
+% % Błąd polegał na używaniu tej samej wartości nonce dla różnych podpisów.
+% % Pozwoliło to na odzyskanie klucza prywatnego z dwóch podpisów cyfrowych.
+% % W wyniku tego ataku możliwe było uruchamianie nieautoryzowanego oprogramowania na konsoli.
+
+% % Pytanie: "Powiedz więcej o ataku na Play Station"
+% \end{frame}
+
 \begin{frame}{Podatności ECC}
-\framesubtitle{Podatne implementacje}
+\framesubtitle{Podatne krzywe}
 \textbf{$ECDLP \neq ECC$} \\
 \pause
 Bezpieczne implementacje są teoretycznie możliwe. \\
 \pause
-Implementacja może być podatna na \cite{SafeCurves}
-\begin{itemize}
-    \item Ataki na generator liczb losowych
-    \item Błędne wyniki dla specyficznych punktów
-    \item Wyciek informacji, gdy podany punkt nie należy do krzywej
-    \item Ataki poprzez pomiar czasu wykonania
-\end{itemize}
-\pause
-\vspace{3mm}
-Przykład: Wyciek kluczy prywatnych Sony PlayStation 3 w 2010 \cite{ConsoleHacking2010}
-% W 2010 roku odkryto, że implementacja ECDSA w PlayStation 3 miała poważny błąd.
-% Błąd polegał na używaniu tej samej wartości nonce dla różnych podpisów.
-% Pozwoliło to na odzyskanie klucza prywatnego z dwóch podpisów cyfrowych.
-% W wyniku tego ataku możliwe było uruchamianie nieautoryzowanego oprogramowania na konsoli.
-
-% Pytanie: "Powiedz więcej o ataku na Play Station"
-\end{frame}
-
-\begin{frame}{Podatności ECC}
-\framesubtitle{Podatne krzywe}
 Nie wszystkie krzywe gwarantują, że ECDLP jest trudny.
 Ataki na podatne krzywe \cite{WeakCurvesInEllipticCurveCryptography}
 \begin{itemize}
@@ -128,20 +132,19 @@ Możliwe jest \textbf{celowe wybranie słabej krzywej} jako backdoor.
     Wśród przebadanych krzywych są też bardziej wydajne krzywej z mniejszym bezpieczeństwem dla tej samej długości klucza. \cite{PracticalCryptographyForDevelopers}
 \end{frame}
 
-\begin{frame}{Ataki na RSA}
-\begin{itemize}
-    \item Ataki kanału bocznego
-    \item Ataki na generator liczb losowych
-    \pause
-    \item \textbf{Podatne liczby pierwsze}
-    \pause
-    \item \textbf{Długość klucza}
-\end{itemize}
-Klucze długości 1024 bit są dziś niewystarczająco bezpieczne.
-\end{frame}
+% \begin{frame}{Ataki na RSA}
+% \begin{itemize}
+%     \item Ataki kanału bocznego
+%     \item Ataki na generator liczb losowych
+%     \pause
+%     \item \textbf{Podatne liczby pierwsze}
+%     \pause
+%     \item \textbf{Długość klucza}
+% \end{itemize}
+% Klucze długości 1024 bit są dziś niewystarczająco bezpieczne.
+% \end{frame}
 
 \begin{frame}{Użycie bibliotek}
-\pause
 \begin{figure}
     \centering
         \includegraphics[height=0.55\textwidth]{security/graphics/developer-implements-rsa-car-meme}
