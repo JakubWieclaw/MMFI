@@ -21,7 +21,7 @@
 \begin{frame}{Implikacje dla bezpieczeństwa}
     \begin{itemize}
         \item Komputery kwantowe będą mogły szybciej złamać ECC niż RSA.
-        \item NIST(National Institute of Standards and Technology) pracuje nad postkwantową kryptografią (np. schematy oparte na kratkach).
+        \item NIST(National Institute of Standards and Technology) pracuje nad postkwantową kryptografią (np. schematy oparte na kratkach - lattice-based cryptography).
         \item Organizacje powinny rozważyć migrację do algorytmów odpornych na komputery kwantowe.
     \end{itemize}
 \end{frame}
@@ -30,7 +30,7 @@
     \begin{itemize}
         \item ECC bazuje na krótszych kluczach niż RSA (przy tej samej odporności klasycznej)
         \item ECC 256-bit odpowiada RSA 3072-bit pod względem klasycznej odporności.
-        \item Shor’s Algorithm atakuje bezpośrednio strukturę matematyczną – mniejsze klucze ECC oznaczają, że wymagana liczba kubitów do ataku jest mniejsza
+        \item Algorytm Shora atakuje bezpośrednio strukturę matematyczną – mniejsze klucze ECC oznaczają, że wymagana liczba kubitów do ataku jest mniejsza
         \item W praktyce, ECC może zostać złamane szybciej niż RSA na komputerze kwantowym
     \end{itemize}
 \end{frame}
@@ -62,14 +62,14 @@
         \item Ryzyko naruszenia prywatności w imię bezpieczeństwa narodowego.
     \end{itemize}
 \end{frame}
-\begin{frame}{Przyszłość kryptografii w kontekście komputerów kwantowych}
-    \begin{itemize}
-    \item RSA i ECC może zostać złamane przez komputery kwantowe.
-    \item Wymóg przejścia na post-kwantowe algorytmy szyfrowania.
-    \item Nowe algorytmy, takie jak lattice-based cryptography, mogą stać się standardem.
-    \item Regulacje mogą wymagać implementacji algorytmów odpornych na ataki kwantowe.
-    \end{itemize}
-\end{frame}
+% \begin{frame}{Przyszłość kryptografii w kontekście komputerów kwantowych}
+%     \begin{itemize}
+%     \item RSA i ECC może zostać złamane przez komputery kwantowe.
+%     \item Wymóg przejścia na post-kwantowe algorytmy szyfrowania.
+%     \item Nowe algorytmy, takie jak lattice-based cryptography, mogą stać się standardem.
+%     \item Regulacje mogą wymagać implementacji algorytmów odpornych na ataki kwantowe.
+%     \end{itemize}
+% \end{frame}
 \begin{frame}{Podsumowanie}
     \begin{itemize}
         \item Komputery kwantowe mogą zagrażać bezpieczeństwu RSA i ECC.
